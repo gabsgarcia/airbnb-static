@@ -1,0 +1,22 @@
+<h1>Flats</h1>
+<%# na view eu sempre vou mostrar algo para o usuário %>
+<ul>
+    <%# faço uma interação na hash de flats que tenho %>
+    <% @flats.each do |flat| %>
+        <li>
+            <%# posso usar as classes bootstrap para modificar como mostro cada flat %>
+            <div class="card-trip">
+            <img src=<%= flat["imageUrl"] %> />
+            <div class="card-trip-infos">
+                <div>
+                <h2><%= flat["name"] %> </h2>
+                </div>
+                <h2 class="card-trip-pricing"><%= flat["price"] %> <%= flat["priceCurrency"] %></h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user rounded-circle" />
+            </div>
+            </div>
+        </li>
+    <% end %>
+</ul>
+
+
