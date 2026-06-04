@@ -1,0 +1,21 @@
+<%# This is the index view — it lists ALL flats.  %>
+<%#    @flats comes from the controller's set_flats method (via before_action).  %>
+
+<div class="container">
+  <h1>Flats</h1>
+
+  <ul>
+    <%# Loop over every flat in the @flats array. Each iteration gives us one `flat` hash. %>
+    <% @flats.each do |flat| %>
+      <li>
+        <%# link_to creates an <a> tag.
+            First argument: the text to display.
+            Second argument: the URL — apartment_path(flat["id"]) generates /flats/3 etc.
+            This path helper exists because we wrote `as: :apartment` in routes.rb. %>
+        <h2><%= link_to flat["name"], apartment_path(flat["id"]) %></h2>
+        <p><%= flat["price"] %> <%= flat["priceCurrency"] %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
+

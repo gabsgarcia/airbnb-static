@@ -1,0 +1,25 @@
+<%# This is the show view — it displays ONE flat. %>
+<%# @flat comes from the show action in the controller, where we searched @flats by id. %>
+<%# If the user visited /flats/3, then @flat is the hash for flat #3. %>
+<h1><%= @flat["name"]  %></h1>
+
+<%# card-trip is a CSS class you'd define in your stylesheet to style this card.  %>
+ <%#   The structure (image + info block) is pure HTML — Rails only steps in where you see <%=  %>
+<div class="card-trip">
+  <%# @flat["imageUrl"] is a key from the JSON data — we just drop its value into the src attribute. %>
+  <img src="<%=@flat["imageUrl"]%>"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @flat["name"]  %></h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing"><%= @flat["price"]  %> <%= @flat["priceCurrency"] %></h2>
+  </div>
+</div>
+
+
+<%# root_path is a Rails path helper for "/" — it's created automatically by `root` in routes.rb. %>
+<p><%= link_to "Go back to all flats", root_path %></p>
+
+
+
